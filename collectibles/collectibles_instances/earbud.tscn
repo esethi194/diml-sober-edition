@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy1a84fa0osan"]
+
+[ext_resource type="PackedScene" uid="uid://dwj8fdwrcee7i" path="res://collectibles/collectibles_base.tscn" id="1_ptowu"]
+[ext_resource type="Texture2D" uid="uid://dtejidq0we427" path="res://sprites/collectibles/earbuds.png" id="2_g2bhk"]
+[ext_resource type="Script" uid="uid://bs3xlmdvt56kq" path="res://collectibles/collectibles_instances/earbud.gd" id="2_om5wt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kl4vj"]
+radius = 405.03082
+
+[node name="earbud" instance=ExtResource("1_ptowu")]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("2_om5wt")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_g2bhk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_kl4vj")

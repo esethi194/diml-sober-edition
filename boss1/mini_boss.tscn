@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8ghj47o5hnmh"]
+
+[ext_resource type="Script" uid="uid://dcqe5ia12nj5q" path="res://boss1/mini_boss.gd" id="1_p2wjs"]
+[ext_resource type="Texture2D" uid="uid://c4aj800s35vbk" path="res://sprites/boss/mini_boss1.png" id="2_vn5um"]
+[ext_resource type="Texture2D" uid="uid://b326w8e3oaeli" path="res://sprites/backgrounds/mini_boss2.png" id="3_vn5um"]
+[ext_resource type="PackedScene" uid="uid://dimuilwwnvfrt" path="res://boss1/mini_boss_bullet.tscn" id="4_rbhw7"]
+[ext_resource type="Script" uid="uid://cp6460fne7dhv" path="res://boss1/mini_boss_hurtbox.gd" id="5_gq7ps"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kphr2"]
+radius = 24.0
+height = 130.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u1ko3"]
+radius = 73.0
+height = 230.0
+
+[node name="miniBoss" type="CharacterBody2D" groups=["enemy"]]
+light_mask = 4
+visibility_layer = 4
+z_index = 2
+collision_layer = 2
+collision_mask = 1
+motion_mode = 1
+script = ExtResource("1_p2wjs")
+sprite_variants = Array[Texture2D]([ExtResource("2_vn5um"), ExtResource("3_vn5um")])
+bullet_scene = ExtResource("4_rbhw7")
+
+[node name="enemySprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kphr2")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("5_gq7ps")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_u1ko3")
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

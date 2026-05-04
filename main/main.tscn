@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://cuptakyokb80e"]
+
+[ext_resource type="Script" uid="uid://mideeaa0iwgu" path="res://main/main.gd" id="1_dse3a"]
+[ext_resource type="Texture2D" uid="uid://biknrukmnvo62" path="res://sprites/backgrounds/MainMenu.png" id="2_4dugh"]
+[ext_resource type="Texture2D" uid="uid://bvc8vnyxx0uen" path="res://sprites/play_btn.png" id="3_3wy1v"]
+[ext_resource type="Texture2D" uid="uid://cq7s6hp02p1po" path="res://sprites/controls_btn.png" id="4_kfbq2"]
+[ext_resource type="Texture2D" uid="uid://dpe7i37xntjmo" path="res://sprites/exit_btn.png" id="5_4dugh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3wy1v"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kfbq2"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_67ri8"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_grrlh"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0i4oc"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bsumw"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = -63.999992
+offset_right = 16.0
+offset_bottom = -63.999992
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_dse3a")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(-35, -9.999998)
+scale = Vector2(0.42597222, 0.36291668)
+texture = ExtResource("2_4dugh")
+centered = false
+
+[node name="play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 123.0
+offset_top = 120.0
+offset_right = 1069.5444
+offset_bottom = 524.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3wy1v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kfbq2")
+icon = ExtResource("3_3wy1v")
+icon_alignment = 1
+expand_icon = true
+
+[node name="controls" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 121.0
+offset_top = 525.0
+offset_right = 1076.8347
+offset_bottom = 875.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_67ri8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_grrlh")
+icon = ExtResource("4_kfbq2")
+icon_alignment = 1
+expand_icon = true
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 870.0
+offset_right = 1066.6714
+offset_bottom = 1257.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0i4oc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bsumw")
+icon = ExtResource("5_4dugh")
+expand_icon = true
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="controls" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

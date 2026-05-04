@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bp5yy6eka8v0j"]
+
+[node name="miniBossSpawner" type="Node2D"]
+
+[node name="mini1" type="Marker2D" parent="." groups=["mini_boss_marker"]]
+position = Vector2(1231, 674)
+
+[node name="mini2" type="Marker2D" parent="." groups=["mini_boss_marker"]]
+position = Vector2(1564, 672)

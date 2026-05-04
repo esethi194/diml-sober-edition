@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgcp0ywdbyr4v"]
+
+[ext_resource type="Script" uid="uid://db8t5dwxhufol" path="res://enemyStates/enemy_base.gd" id="1_1m1yv"]
+[ext_resource type="Script" uid="uid://ck7x0vmtk01od" path="res://enemyStates/states/state_machine.gd" id="2_hhwv1"]
+[ext_resource type="Script" uid="uid://bnbrl0roy48nx" path="res://enemyStates/hurtbox.gd" id="7_yirrq"]
+
+[node name="EnemyBase" type="CharacterBody2D" groups=["enemy"]]
+z_index = 10
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_1m1yv")
+
+[node name="enemySprite" type="Sprite2D" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_hhwv1")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Hurtbox" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("7_yirrq")
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

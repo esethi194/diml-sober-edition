@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjirm4cu4814h"]
+
+[ext_resource type="PackedScene" uid="uid://cgcp0ywdbyr4v" path="res://enemyStates/enemy_base.tscn" id="1_213t4"]
+[ext_resource type="Script" uid="uid://dll0elfw8nl08" path="res://enemyStates/druggie/druggie_enemy.gd" id="2_goaym"]
+[ext_resource type="PackedScene" uid="uid://bi68t77eipkvj" path="res://enemyStates/druggie/druggie_bullet.tscn" id="3_45l4v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dafoj"]
+radius = 34.0
+height = 138.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nbbd"]
+radius = 68.0
+height = 326.0
+
+[node name="DruggieEnemy" instance=ExtResource("1_213t4")]
+script = ExtResource("2_goaym")
+bullet_scene = ExtResource("3_45l4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-3, 74)
+shape = SubResource("CapsuleShape2D_dafoj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CapsuleShape2D_8nbbd")

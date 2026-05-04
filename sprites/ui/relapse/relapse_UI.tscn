@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://nm44e31lgt4d"]
+
+[ext_resource type="Script" uid="uid://dh7serrxdktpp" path="res://sprites/ui/relapse/back_to_invite.gd" id="1_3r84m"]
+[ext_resource type="Texture2D" uid="uid://501v3o50b6uo" path="res://sprites/backgrounds/relapse.png" id="2_3r84m"]
+[ext_resource type="PackedScene" uid="uid://co058pauody1x" path="res://sprites/ui/pause_menu.tscn" id="3_417qq"]
+[ext_resource type="Texture2D" uid="uid://cpbxgr4sgtyks" path="res://sprites/relapse_btn.png" id="3_egtsx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04vx4"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3aecr"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+
+[node name="relapse" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -190.0
+offset_top = -55.0
+offset_right = -190.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.15, 1.15)
+script = ExtResource("1_3r84m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 2136.3635
+offset_bottom = 1213.6364
+color = Color(0, 0, 0, 1)
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(1025.0149, 530)
+scale = Vector2(0.25971806, 0.20083332)
+texture = ExtResource("2_3r84m")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 622.0
+offset_right = 1607.0
+offset_bottom = 884.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_04vx4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3aecr")
+icon = ExtResource("3_egtsx")
+flat = true
+expand_icon = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("3_417qq")]
+visible = false
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

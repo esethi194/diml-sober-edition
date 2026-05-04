@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://p58fb6oyj3qg"]
+
+[ext_resource type="Texture2D" uid="uid://c6inb8ljcg80i" path="res://sprites/UI_sprites/base_plate.png" id="1_hpm0x"]
+[ext_resource type="Script" uid="uid://dxj5jmlou0vrw" path="res://sprites/ui/controls.gd" id="1_kuiab"]
+[ext_resource type="Texture2D" uid="uid://c8qqqg16row17" path="res://sprites/UI_sprites/Controls.png" id="2_kuiab"]
+[ext_resource type="Texture2D" uid="uid://dalbslcuqqr5s" path="res://sprites/UI_sprites/controls_txt.png" id="3_fehlh"]
+[ext_resource type="Texture2D" uid="uid://bbayem4rxdtpu" path="res://sprites/UI_sprites/Copy/UI-ButtonFilled.png" id="4_lcy8u"]
+[ext_resource type="Texture2D" uid="uid://ds1tiea75s1yy" path="res://sprites/UI_sprites/Back.png" id="5_3vy2p"]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2345.0
+offset_bottom = 1340.0
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_kuiab")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(33, 29.000004)
+scale = Vector2(2.6922183, 4.1246195)
+texture = ExtResource("1_hpm0x")
+centered = false
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(292, 114.000015)
+scale = Vector2(1.2953587, 1.5671642)
+texture = ExtResource("2_kuiab")
+centered = false
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1710.9999
+offset_top = 148.0
+offset_right = 2133.0
+offset_bottom = 300.0
+scale = Vector2(0.8, 0.761)
+
+[node name="backbtn" type="Sprite2D" parent="."]
+position = Vector2(1708, 147)
+scale = Vector2(1.1, 1.8750004)
+texture = ExtResource("4_lcy8u")
+centered = false
+
+[node name="backtxt" type="Sprite2D" parent="."]
+position = Vector2(1820, 172)
+scale = Vector2(0.8, 0.761)
+texture = ExtResource("5_3vy2p")
+centered = false
+
+[node name="content" type="Sprite2D" parent="."]
+position = Vector2(291.00003, 271)
+scale = Vector2(0.7860963, 0.57606345)
+texture = ExtResource("3_fehlh")
+centered = false
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

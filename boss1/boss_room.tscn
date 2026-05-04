@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://27s5bru673et"]
+
+[ext_resource type="PackedScene" uid="uid://ud83pgv70d5f" path="res://boss1/boss_background.tscn" id="1_lc6o7"]
+[ext_resource type="Script" uid="uid://3iogrhrkx620" path="res://boss1/boss_room.gd" id="1_tsafv"]
+[ext_resource type="PackedScene" uid="uid://bgq1gt72sy0c6" path="res://player/player.tscn" id="2_vhjk2"]
+[ext_resource type="PackedScene" uid="uid://co058pauody1x" path="res://sprites/ui/pause_menu.tscn" id="4_f8ipm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25bnr"]
+size = Vector2(299.00003, 527.5)
+
+[node name="bossRoom" type="Node2D"]
+script = ExtResource("1_tsafv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -85.0
+offset_top = -40.99999
+offset_right = 3000.0
+offset_bottom = 1726.0
+color = Color(0, 0, 0, 1)
+
+[node name="bkg_colored" parent="CanvasLayer" instance=ExtResource("1_lc6o7")]
+position = Vector2(130, 15)
+
+[node name="trigger" type="Area2D" parent="CanvasLayer/bkg_colored"]
+z_index = 1
+position = Vector2(-13.51352, 0)
+scale = Vector2(2.7027028, 2.7027028)
+collision_layer = 4
+collision_mask = 4
+
+[node name="trigger" type="CollisionShape2D" parent="CanvasLayer/bkg_colored/trigger"]
+position = Vector2(1412.5, 748.25)
+shape = SubResource("RectangleShape2D_25bnr")
+
+[node name="player" parent="CanvasLayer" instance=ExtResource("2_vhjk2")]
+position = Vector2(969.4004, 917.4002)
+scale = Vector2(0.34, 0.34)
+
+[node name="camera" parent="CanvasLayer/player" index="1"]
+limit_left = 0
+limit_top = 20
+limit_right = 2900
+limit_bottom = 1700
+
+[node name="AnimatedSprite2D" parent="CanvasLayer/player" index="2"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="CanvasLayer/player/Hurtbox" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("4_f8ipm")]
+visible = false
+
+[connection signal="body_entered" from="CanvasLayer/bkg_colored/trigger" to="." method="_on_trigger_body_entered"]
+
+[editable path="CanvasLayer/player"]

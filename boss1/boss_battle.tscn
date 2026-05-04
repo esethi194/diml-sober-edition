@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://020d7atxnb7w"]
+
+[ext_resource type="Script" uid="uid://dt3kt61ngvm8m" path="res://boss1/boss_battle.gd" id="1_ae2w7"]
+[ext_resource type="PackedScene" uid="uid://dm7v3f4etaafp" path="res://boss1/boss_battle_png.tscn" id="1_ynn4n"]
+[ext_resource type="PackedScene" uid="uid://brgy72801oo06" path="res://boss1/boss.tscn" id="2_7vsxe"]
+[ext_resource type="PackedScene" uid="uid://bgq1gt72sy0c6" path="res://player/player.tscn" id="4_soqvq"]
+[ext_resource type="PackedScene" uid="uid://b20ele28c2mcx" path="res://boss1/mini_boss_manager.tscn" id="6_dhapk"]
+[ext_resource type="PackedScene" uid="uid://ibw84lb2uic5" path="res://collectibles/mirror/mirror_manager.tscn" id="7_g645y"]
+[ext_resource type="PackedScene" uid="uid://hsvgmuhtja8b" path="res://sprites/ui/sobriety bar/boss_sobriety_progress_bar.tscn" id="9_xl4vj"]
+[ext_resource type="PackedScene" uid="uid://co058pauody1x" path="res://sprites/ui/pause_menu.tscn" id="10_foim5"]
+[ext_resource type="PackedScene" uid="uid://bat230rhf8oxu" path="res://UI/sidebar_ui.tscn" id="10_vonge"]
+
+[node name="bossBattle" type="Node2D"]
+script = ExtResource("1_ae2w7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+offset = Vector2(-60, 0)
+scale = Vector2(0.85, 0.85)
+transform = Transform2D(0.85, 0, 0, 0.85, -60, 0)
+
+[node name="boss" parent="CanvasLayer" instance=ExtResource("2_7vsxe")]
+light_mask = 4
+visibility_layer = 4
+z_index = 1
+position = Vector2(1204, 322)
+scale = Vector2(4, 4)
+collision_layer = 4
+collision_mask = 4
+shoot_cooldown = 3.0
+
+[node name="miniBossManager" parent="CanvasLayer" instance=ExtResource("6_dhapk")]
+position = Vector2(308.99997, 166.99998)
+scale = Vector2(0.7, 0.7)
+
+[node name="miniBossSpawner" parent="CanvasLayer/miniBossManager" index="0"]
+position = Vector2(7, -7)
+
+[node name="mini1" parent="CanvasLayer/miniBossManager/miniBossSpawner" index="0"]
+position = Vector2(1065.8572, 518.42865)
+
+[node name="mini2" parent="CanvasLayer/miniBossManager/miniBossSpawner" index="1"]
+position = Vector2(1445.8572, 514.1429)
+
+[node name="mirrorManager" parent="CanvasLayer" instance=ExtResource("7_g645y")]
+z_index = 1
+position = Vector2(-80, 0)
+
+[node name="mirror_marker" type="Marker2D" parent="CanvasLayer/mirrorManager"]
+position = Vector2(1268, 534)
+
+[node name="player" parent="CanvasLayer" instance=ExtResource("4_soqvq")]
+position = Vector2(1211, 1113)
+scale = Vector2(0.45, 0.45)
+collision_layer = 15
+
+[node name="bossBattlepng" parent="CanvasLayer" instance=ExtResource("1_ynn4n")]
+position = Vector2(90, 21.999985)
+scale = Vector2(1.15, 1.15)
+
+[node name="SidebarUI" parent="CanvasLayer" instance=ExtResource("10_vonge")]
+offset_left = 394.0
+offset_top = 43.0
+offset_right = 394.0
+offset_bottom = 43.0
+scale = Vector2(0.45, 0.45)
+manager_autoload_name = "boss_task_manager"
+metadata/_edit_use_anchors_ = true
+
+[node name="bossSobrietyProgressBar" parent="CanvasLayer" instance=ExtResource("9_xl4vj")]
+offset_left = 1521.0
+offset_top = 52.0
+offset_right = 1585.0
+offset_bottom = 63.0
+metadata/_edit_use_anchors_ = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("10_foim5")]
+visible = false
+
+[editable path="CanvasLayer/miniBossManager"]
+[editable path="CanvasLayer/miniBossManager/miniBossSpawner"]

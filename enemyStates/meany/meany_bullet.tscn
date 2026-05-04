@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://pvku4cxrgepf"]
+
+[ext_resource type="PackedScene" uid="uid://b7gwcn1x17j0v" path="res://enemyStates/bullets/bullet_base.tscn" id="1_7gjkp"]
+[ext_resource type="Script" uid="uid://bk30fbbnpvots" path="res://enemyStates/meany/meany_bullet.gd" id="2_xbofk"]
+[ext_resource type="Texture2D" uid="uid://dn0fmo6v0l01b" path="res://sprites/bullets/MEANY_BULLET.png" id="3_hhfdk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m7le"]
+size = Vector2(1144, 106)
+
+[node name="meanyBullet" groups=["enemy_bullet"] instance=ExtResource("1_7gjkp")]
+scale = Vector2(0.25, 0.25)
+collision_layer = 16
+collision_mask = 5
+script = ExtResource("2_xbofk")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_hhfdk")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_0m7le")

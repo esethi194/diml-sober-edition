@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://hsvgmuhtja8b"]
+
+[ext_resource type="Texture2D" uid="uid://uet7mmh44g1b" path="res://sprites/ui/sobriety bar/healthbarUnder.png" id="1_guboo"]
+[ext_resource type="Texture2D" uid="uid://ddnijj7s6gy67" path="res://sprites/ui/sobriety bar/healthbarProgress.png" id="2_h0bom"]
+[ext_resource type="Script" uid="uid://8cd35nap8ccx" path="res://sprites/ui/sobriety bar/boss_sobriety_progress_bar.gd" id="3_guboo"]
+
+[node name="bossSobrietyProgressBar" type="TextureProgressBar" groups=["sobriety_manager"]]
+offset_left = 358.0
+offset_top = 4.0
+offset_right = 422.0
+offset_bottom = 15.0
+scale = Vector2(8, 8)
+value = 100.0
+texture_under = ExtResource("1_guboo")
+texture_progress = ExtResource("2_h0bom")
+script = ExtResource("3_guboo")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -44.375
+offset_top = 0.25
+offset_right = -1.375
+offset_bottom = 23.25
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+text = "Sobriety Meter"

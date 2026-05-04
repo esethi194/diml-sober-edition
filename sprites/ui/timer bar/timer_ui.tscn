@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://chvjmad5dgksr"]
+
+[ext_resource type="Texture2D" uid="uid://dr6hs802qb42t" path="res://sprites/ui/timer bar/under.png" id="1_lmo4n"]
+[ext_resource type="Texture2D" uid="uid://b0x7ps21pws4s" path="res://sprites/ui/timer bar/progress.png" id="2_p1s5p"]
+[ext_resource type="Script" uid="uid://cmsnekpy1xl0i" path="res://sprites/ui/timer bar/timer_ui.gd" id="3_jkq8w"]
+
+[node name="timer UI" type="TextureProgressBar"]
+offset_right = 657.0
+offset_bottom = 685.0
+scale = Vector2(0.3, 0.3)
+step = 0.5
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("1_lmo4n")
+texture_progress = ExtResource("2_p1s5p")
+script = ExtResource("3_jkq8w")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.974
+offset_left = 2.0
+offset_right = -1.0
+offset_bottom = -0.190002
+theme_override_font_sizes/font_size = 200
+text = "3:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://phfb4htyk2i6"]
+
+[ext_resource type="Script" uid="uid://dyllswcvncusu" path="res://level 1/invite.gd" id="1_lbp24"]
+[ext_resource type="Texture2D" uid="uid://bbsnpk3jnqyro" path="res://sprites/backgrounds/invite.png" id="2_3512b"]
+[ext_resource type="PackedScene" uid="uid://co058pauody1x" path="res://sprites/ui/pause_menu.tscn" id="3_3512b"]
+[ext_resource type="Texture2D" uid="uid://bgufstjut4xg2" path="res://sprites/rsvp_btn.png" id="3_n0aa4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qcw8w"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n0aa4"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 819.0
+offset_bottom = 461.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_lbp24")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.267
+anchor_bottom = 1.34
+offset_right = 253.32324
+offset_bottom = -103.06006
+color = Color(0, 0, 0, 1)
+
+[node name="PhoneInvite" type="Sprite2D" parent="."]
+position = Vector2(1713.2124, 979.51465)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("2_3512b")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1153.3333
+offset_top = 1096.6666
+offset_right = 3011.5461
+offset_bottom = 2067.2407
+scale = Vector2(0.38, 0.38)
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qcw8w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n0aa4")
+icon = ExtResource("3_n0aa4")
+icon_alignment = 1
+expand_icon = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("3_3512b")]
+visible = false
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

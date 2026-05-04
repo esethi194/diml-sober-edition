@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dssws28yqtpxq"]
+
+[ext_resource type="PackedScene" uid="uid://dwj8fdwrcee7i" path="res://collectibles/collectibles_base.tscn" id="1_nl1k7"]
+[ext_resource type="Texture2D" uid="uid://c6vg51vk3wu25" path="res://sprites/collectibles/infinite_cube.png" id="1_oydea"]
+[ext_resource type="Script" uid="uid://balo55vwro2c4" path="res://collectibles/collectibles_instances/cube.gd" id="2_76pjt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lhim7"]
+radius = 285.39444
+
+[node name="cube" instance=ExtResource("1_nl1k7")]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("2_76pjt")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("1_oydea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_lhim7")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ibw84lb2uic5"]
+
+[ext_resource type="Script" path="res://collectibles/mirror/mirror_manager.gd" id="1_xju05"]
+
+[node name="mirrorManager" type="Node2D"]
+script = ExtResource("1_xju05")

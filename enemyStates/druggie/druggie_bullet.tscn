@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi68t77eipkvj"]
+
+[ext_resource type="PackedScene" uid="uid://b7gwcn1x17j0v" path="res://enemyStates/bullets/bullet_base.tscn" id="1_icv1w"]
+[ext_resource type="Script" uid="uid://cxfjhagackpv1" path="res://enemyStates/druggie/druggie_bullet.gd" id="2_ehvr0"]
+[ext_resource type="Texture2D" uid="uid://cdn01x10ku877" path="res://sprites/collectibles/pill_bottle.png" id="2_lldwh"]
+
+[node name="druggieBullet" groups=["enemy_bullet"] instance=ExtResource("1_icv1w")]
+scale = Vector2(0.07, 0.07)
+collision_layer = 16
+collision_mask = 5
+script = ExtResource("2_ehvr0")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_lldwh")

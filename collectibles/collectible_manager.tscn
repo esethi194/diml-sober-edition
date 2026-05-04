@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0di5c7d3cxv6"]
+
+[ext_resource type="Script" path="res://collectibles/collectible_manager.gd" id="1_s16vj"]
+[ext_resource type="PackedScene" uid="uid://dhkln8elm608l" path="res://level 1/markers.tscn" id="2_pqei7"]
+
+[node name="CollectibleManager" type="Node2D"]
+z_index = 3
+script = ExtResource("1_s16vj")
+
+[node name="markers" parent="." instance=ExtResource("2_pqei7")]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpryii3wm1ui8"]
+
+[ext_resource type="Texture2D" uid="uid://c82jn7j070cbn" path="res://sprites/ui/opening page/house_party_menu.png" id="2_qbe0n"]
+
+[sub_resource type="GDScript" id="GDScript_rtc1j"]
+script/source = "extends CanvasLayer
+
+# Handle input shortcuts
+func _process(_delta: float) -> void:
+	shortcuts()
+
+# Handle keyboard shortcuts
+func shortcuts() -> void:
+	if Input.is_action_just_pressed(\"next\"):
+		get_tree().change_scene_to_file(\"res://main/main.tscn\")
+	elif Input.is_action_just_pressed(\"back\"):
+		get_tree().change_scene_to_file(\"res://main/main.tscn\")
+	elif Input.is_action_just_pressed(\"restart\"):
+		get_tree().reload_current_scene() 
+	elif Input.is_action_just_pressed(\"quit\"):
+		get_tree().quit()
+
+# Handle settings button press
+func _on_restart_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://level 1/invite.tscn\")
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
+"
+
+[node name="lose" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 922.0
+offset_bottom = 620.0
+script = SubResource("GDScript_rtc1j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 3034.0
+offset_bottom = 1746.0
+color = Color(0.283018, 0.283018, 0.283018, 1)
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 426.0
+offset_right = 2586.0
+offset_bottom = 1155.0
+theme_override_font_sizes/normal_font_size = 460
+text = "YOU LOST"
+
+[node name="background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1131.52, 782.374)
+scale = Vector2(0.314416, 0.326094)
+texture = ExtResource("2_qbe0n")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 1353.0
+offset_right = 1233.0
+offset_bottom = 1556.0
+theme_override_font_sizes/font_size = 75
+text = "Play Again"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1689.0
+offset_top = 1356.0
+offset_right = 2179.0
+offset_bottom = 1559.0
+theme_override_font_sizes/font_size = 75
+text = "Quit"
+
+[connection signal="pressed" from="Button" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_exit_pressed"]

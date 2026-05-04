@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce3mt11imdbgx"]
+
+[ext_resource type="PackedScene" uid="uid://ba2dtrj1cabeo" path="res://interactable.tscn" id="1_03ba1"]
+[ext_resource type="Texture2D" uid="uid://8i5pdkhc4k51" path="res://sprites/tasks/fridge/Closed_Fridge.png" id="2_0i8sb"]
+[ext_resource type="Script" path="res://level 1/tasks/fridge.gd" id="2_w4c18"]
+[ext_resource type="Texture2D" uid="uid://dgdco7k3l6xbu" path="res://sprites/tasks/fridge/Open_Fridge.png" id="3_qrcmb"]
+
+[node name="fridge" instance=ExtResource("1_03ba1")]
+z_index = 1
+script = ExtResource("2_w4c18")
+sprite_img1 = ExtResource("2_0i8sb")
+sprite_img2 = ExtResource("3_qrcmb")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-5, 74.1719)
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("2_0i8sb")

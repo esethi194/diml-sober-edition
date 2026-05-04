@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c0ah44anaab16"]
+
+[node name="endLevelPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="popupColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.04
+anchor_top = 0.148
+anchor_right = -0.04
+anchor_bottom = 0.148
+offset_left = 4.08
+offset_top = 249.096
+offset_right = 664.08
+offset_bottom = 411.096
+color = Color(0.427451, 0.427451, 0.427451, 0.513726)
+
+[node name="PopupLabel" type="Label" parent="popupColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.51
+anchor_bottom = -1.51
+offset_left = 34.92
+offset_top = 255.524
+offset_right = 629.92
+offset_bottom = 394.524
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 49
+text = "Find the toy and press 
+ENTER to exit room"

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpgq86wl0f2k"]
+
+[ext_resource type="PackedScene" uid="uid://dwj8fdwrcee7i" path="res://collectibles/collectibles_base.tscn" id="1_74snr"]
+[ext_resource type="Script" uid="uid://cgte14hm46pu0" path="res://collectibles/mirror/mirror.gd" id="2_dgv8w"]
+[ext_resource type="Texture2D" uid="uid://cv3o1wbvo7rjs" path="res://sprites/collectibles/mirror_shard.png" id="2_e5n65"]
+[ext_resource type="Texture2D" uid="uid://7hgjf7lqx12v" path="res://sprites/collectibles/download.png" id="3_bpoe8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p6dag"]
+radius = 144.99998
+height = 549.99994
+
+[node name="mirror" instance=ExtResource("1_74snr")]
+z_index = 0
+scale = Vector2(0.2, 0.2)
+collision_mask = 7
+script = ExtResource("2_dgv8w")
+BULLET_SCENE = null
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="0"]
+position = Vector2(5, 5)
+scale = Vector2(0.273809, 0.273809)
+texture = ExtResource("3_bpoe8")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(50, 80)
+texture = ExtResource("2_e5n65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(-15.000004, 9.999999)
+shape = SubResource("CapsuleShape2D_p6dag")

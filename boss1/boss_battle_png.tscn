@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm7v3f4etaafp"]
+
+[ext_resource type="Script" uid="uid://bqdo7am1vg8s7" path="res://boss1/colliders.gd" id="2_66tyq"]
+[ext_resource type="Texture2D" uid="uid://2dpdi4u2taww" path="res://sprites/backgrounds/Boss_Room_Design_FINAL.png" id="2_ggmu4"]
+
+[node name="bossBattlepng" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -82.0
+offset_top = -106.0
+offset_right = 2118.0
+offset_bottom = 1282.0
+color = Color(0, 0, 0, 1)
+
+[node name="bkg_colored" type="Sprite2D" parent="."]
+position = Vector2(986.99994, 539)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("2_ggmu4")
+
+[node name="colliders" type="StaticBody2D" parent="."]
+z_index = 1
+position = Vector2(99, -8)
+scale = Vector2(0.23, 0.23)
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("2_66tyq")
+
+[node name="walls" type="CollisionPolygon2D" parent="colliders" groups=["wall"]]
+position = Vector2(3778.2607, 2239.1304)
+polygon = PackedVector2Array(-943.4785, 2356.5217, -1034.7827, 2452.1736, -1039.1306, -2126.087, 1008.6953, -2139.1306, 1017.3911, 2452.1736, -1021.73926, 2456.5217, -943.4785, 2365.217, 926.0869, 2356.5217, 934.7822, -2065.2175, -973.9133, -2047.8262)
+
+[node name="Area2D" type="Area2D" parent="colliders"]
+visible = false
+
+[node name="walls" type="CollisionPolygon2D" parent="colliders/Area2D" groups=["wall"]]
+position = Vector2(3778.2607, 2239.1304)
+polygon = PackedVector2Array(-943.4785, 2356.5217, -1034.7827, 2452.1736, -1039.1306, -2126.087, 1008.6953, -2139.1306, 1017.3911, 2452.1736, -1021.73926, 2456.5217, -943.4785, 2365.217, 926.0869, 2356.5217, 934.7822, -2065.2175, -973.9133, -2047.8262)
+
+[node name="playerSpawn" type="Marker2D" parent="."]
+position = Vector2(963, 1006)
+
+[connection signal="area_entered" from="colliders/Area2D" to="colliders" method="_on_bullet_entered"]

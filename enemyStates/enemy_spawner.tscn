@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmnsawb2y71my"]
+
+[ext_resource type="PackedScene" uid="uid://cbra5bpbrmfo0" path="res://enemyStates/druggie/druggie_spawner.tscn" id="1_xli7f"]
+[ext_resource type="PackedScene" uid="uid://cjsonb3xuimbx" path="res://enemyStates/jock/jock_spawner.tscn" id="2_6ptdc"]
+[ext_resource type="PackedScene" uid="uid://dvfd25g2jinaf" path="res://enemyStates/meany/meany_spawner.tscn" id="3_a10cy"]
+
+[node name="EnemySpawner" type="Node2D"]
+
+[node name="druggieSpawner2" parent="." instance=ExtResource("1_xli7f")]
+
+[node name="jockSpawner2" parent="." instance=ExtResource("2_6ptdc")]
+
+[node name="meanySpawner2" parent="." instance=ExtResource("3_a10cy")]

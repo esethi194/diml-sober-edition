@@ -1,0 +1,129 @@
+[gd_scene load_steps=17 format=3 uid="uid://8agfykgfqvpo"]
+
+[ext_resource type="Script" uid="uid://casta6b4gphlh" path="res://level 1/world_1_level_v1.gd" id="1_f85xp"]
+[ext_resource type="PackedScene" uid="uid://5exb4l4heato" path="res://UI/hud_nav_bar.tscn" id="2_oy3ct"]
+[ext_resource type="Texture2D" uid="uid://8kqdbqkux0ye" path="res://sprites/backgrounds/HOUSE_FINAL.png" id="3_4qo2j"]
+[ext_resource type="PackedScene" uid="uid://dip2iveeop5qd" path="res://level 1/world_1_background_layer_png.tscn.tscn" id="3_euc4m"]
+[ext_resource type="PackedScene" uid="uid://bat230rhf8oxu" path="res://UI/sidebar_ui.tscn" id="3_pucas"]
+[ext_resource type="PackedScene" uid="uid://dj0pbad3nnc6w" path="res://level 1/world_1_asset_layer_png.tscn" id="4_iffhi"]
+[ext_resource type="PackedScene" uid="uid://bgq1gt72sy0c6" path="res://player/player.tscn" id="5_puh1d"]
+[ext_resource type="PackedScene" uid="uid://d0di5c7d3cxv6" path="res://collectibles/collectible_manager.tscn" id="6_4hqwb"]
+[ext_resource type="PackedScene" uid="uid://ce3mt11imdbgx" path="res://level 1/tasks/fridge.tscn" id="11_fnogc"]
+[ext_resource type="Script" uid="uid://d2ukqilafulyw" path="res://level 1/exit_zone.gd" id="11_hcitl"]
+[ext_resource type="PackedScene" uid="uid://c4pcpettkyn0d" path="res://enemyStates/enemy_scene.tscn" id="11_jtqta"]
+[ext_resource type="PackedScene" uid="uid://cmnsawb2y71my" path="res://enemyStates/enemy_spawner.tscn" id="12_wn146"]
+[ext_resource type="PackedScene" uid="uid://bxuqqh66uh7jm" path="res://level 1/tasks/tree.tscn" id="13_oel7s"]
+[ext_resource type="PackedScene" uid="uid://dc00vgglinieb" path="res://level 1/tasks/bathroom.tscn" id="14_mctms"]
+[ext_resource type="PackedScene" uid="uid://buxinm0eo2p25" path="res://level 1/tasks/water.tscn" id="18_qpmu6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7siq0"]
+radius = 166.0
+height = 1001.9999
+
+[node name="level1" type="Node2D"]
+scale = Vector2(0.9, 0.9)
+script = ExtResource("1_f85xp")
+
+[node name="house2" type="Sprite2D" parent="."]
+position = Vector2(3856.44, 2156)
+scale = Vector2(0.567, 0.567)
+texture = ExtResource("3_4qo2j")
+
+[node name="Player" parent="." instance=ExtResource("5_puh1d")]
+z_index = 20
+position = Vector2(1740, 4265.666)
+collision_mask = 1
+
+[node name="CollectibleManager" parent="." instance=ExtResource("6_4hqwb")]
+
+[node name="background layer" parent="." instance=ExtResource("3_euc4m")]
+scale = Vector2(1, 1)
+
+[node name="asset layer" parent="." instance=ExtResource("4_iffhi")]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-1, 0)
+scale = Vector2(1, 1)
+
+[node name="fridge" parent="asset layer" instance=ExtResource("11_fnogc")]
+z_index = 0
+position = Vector2(4699, 678)
+scale = Vector2(0.67, 0.67)
+collision_layer = 8
+collision_mask = 4
+
+[node name="water" parent="asset layer" instance=ExtResource("18_qpmu6")]
+z_index = -1
+position = Vector2(4737, 649.99994)
+scale = Vector2(0.07, 0.07)
+collision_layer = 8
+collision_mask = 4
+
+[node name="bathroom" parent="asset layer" instance=ExtResource("14_mctms")]
+
+[node name="tree" parent="asset layer" instance=ExtResource("13_oel7s")]
+position = Vector2(6500, 3285)
+location_name = "tree"
+
+[node name="exitZone" type="Area2D" parent="."]
+z_index = 2
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("11_hcitl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitZone"]
+position = Vector2(1728, 4318)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7siq0")
+
+[node name="enemyScene" parent="." instance=ExtResource("11_jtqta")]
+z_index = 1
+
+[node name="kitchen" parent="enemyScene/enemy_area" index="2"]
+scale = Vector2(0.9, 0.9)
+
+[node name="dining" parent="enemyScene/enemy_area" index="3"]
+scale = Vector2(0.9, 0.9)
+
+[node name="dumpster" parent="enemyScene/enemy_area" index="4"]
+scale = Vector2(0.9, 0.9)
+
+[node name="smokezone(druggies)" parent="enemyScene/enemy_area/dumpster" index="0"]
+polygon = PackedVector2Array(708, 2829, 706, 1926, 1836, 1929, 1840, 2570, 2164, 2570, 2169, 2679, 2474, 2675, 2484, 3960, 1531, 3981, 718, 3965)
+
+[node name="tree" parent="enemyScene/enemy_area" index="5"]
+scale = Vector2(0.9, 0.9)
+
+[node name="living" parent="enemyScene/enemy_area" index="6"]
+scale = Vector2(0.9, 0.9)
+
+[node name="pool" parent="enemyScene/enemy_area" index="7"]
+scale = Vector2(0.9, 0.9)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("12_wn146")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(1.17, 1.17)
+transform = Transform2D(1.17, 0, 0, 1.17, 0, 0)
+
+[node name="nav_bar hud" parent="CanvasLayer" instance=ExtResource("2_oy3ct")]
+offset_left = 3.4188035
+offset_top = 0.0
+offset_right = 3.4188035
+offset_bottom = 0.0
+scale = Vector2(0.775, 0.775)
+metadata/_edit_use_anchors_ = true
+
+[node name="SidebarUI" parent="CanvasLayer" instance=ExtResource("3_pucas")]
+offset_top = 168.35043
+offset_bottom = 168.35043
+scale = Vector2(0.5, 0.5)
+manager_autoload_name = "task_manager"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="exitZone" to="exitZone" method="_on_player_enter"]
+[connection signal="body_exited" from="exitZone" to="exitZone" method="_on_player_exit"]
+
+[editable path="Player"]
+[editable path="enemyScene"]
+[editable path="enemyScene/enemy_area"]

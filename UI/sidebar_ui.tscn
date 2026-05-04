@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://bat230rhf8oxu"]
+
+[ext_resource type="Script" uid="uid://cmxic4q7rsk81" path="res://UI/sidebar_ui.gd" id="1_1kls2"]
+[ext_resource type="AudioStream" uid="uid://t2atkp1wr0ln" path="res://sound/complete.mp3" id="1_kbwt3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7fydn"]
+font_size = 25
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 9
+shadow_color = Color(0.45882353, 0.45882353, 0.45882353, 0.14901961)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kvlij"]
+font_size = 15
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m4ow3"]
+font_size = 24
+font_color = Color(1, 0.643137, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_747c2"]
+font_size = 28
+font_color = Color(0, 0.556863, 0, 1)
+
+[node name="SidebarUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_1kls2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 268.375
+offset_bottom = 161.375
+scale = Vector2(4, 4)
+color = Color(0, 0, 0, 0.7411765)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 269.5
+offset_bottom = 35.0
+scale = Vector2(4, 4)
+color = Color(0.4045111, 0.40451115, 0.4045111, 0.7411765)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_right = 287.58334
+offset_bottom = 163.0
+scale = Vector2(4, 4)
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Task Title"
+label_settings = SubResource("LabelSettings_7fydn")
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+text = "Task description goes here"
+label_settings = SubResource("LabelSettings_kvlij")
+autowrap_mode = 3
+
+[node name="Timer" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Time: 10s"
+label_settings = SubResource("LabelSettings_m4ow3")
+
+[node name="Checkmark" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "✓ Complete!"
+label_settings = SubResource("LabelSettings_747c2")
+
+[node name="CompletionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_kbwt3")
+volume_db = 5.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_kbwt3")

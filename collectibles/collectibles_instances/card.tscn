@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtxcoyui33udq"]
+
+[ext_resource type="PackedScene" uid="uid://dwj8fdwrcee7i" path="res://collectibles/collectibles_base.tscn" id="1_o32gh"]
+[ext_resource type="Texture2D" uid="uid://bbxhcptyisttg" path="res://sprites/collectibles/breathingcard.png" id="2_201mb"]
+[ext_resource type="Script" uid="uid://cmpmib4dd0iv5" path="res://collectibles/collectibles_instances/card.gd" id="2_kdf27"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eemte"]
+size = Vector2(490, 835)
+
+[node name="card" instance=ExtResource("1_o32gh")]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("2_kdf27")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(24.999998, 0)
+texture = ExtResource("2_201mb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-5.0000277, 2.4999614)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_eemte")

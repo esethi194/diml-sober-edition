@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://ud83pgv70d5f"]
+
+[ext_resource type="Texture2D" uid="uid://bv0qpsu8e3gas" path="res://sprites/backgrounds/boss_room_final.png" id="1_5ltsk"]
+[ext_resource type="Texture2D" uid="uid://mskh0vgr8ery" path="res://sprites/boss/Sink_Asset.png" id="2_a3mgi"]
+[ext_resource type="Texture2D" uid="uid://bawcjyuhyp676" path="res://sprites/backgrounds/mirror.png" id="3_a3mgi"]
+
+[node name="background" type="Node2D"]
+scale = Vector2(0.22, 0.22)
+
+[node name="colliders" type="StaticBody2D" parent="."]
+position = Vector2(0, 3.0000005)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="walls" type="CollisionPolygon2D" parent="colliders"]
+polygon = PackedVector2Array(2708, 4661, 2724, 84, 2834, 85, 2815, 4572, 4675.32, 4578.72, 4689, 203, 2834, 194, 2834, 85, 4769, 96, 4769, 202, 4759, 4581, 4760, 4667, 2807, 4665)
+
+[node name="sink" type="CollisionPolygon2D" parent="colliders"]
+position = Vector2(-741.3794, -58.172394)
+scale = Vector2(1.2, 1.2)
+polygon = PackedVector2Array(3613, 2117, 3606, 1736, 3590, 1734, 3581, 1473, 3997, 1464, 4005, 1694, 4002, 1695, 4001, 1724, 3988, 1727, 3982, 2141, 3961, 2142, 3961, 2165, 3853.8623, 2166.9307, 3628, 2171, 3628, 2152, 3614, 2152)
+
+[node name="backwall" type="CollisionPolygon2D" parent="colliders"]
+polygon = PackedVector2Array(2827.59, 1910.79, 4675.86, 1921.14, 4682.76, 203.897, 2834.48, 197)
+
+[node name="BossLevelIntro" type="Sprite2D" parent="."]
+position = Vector2(3856.44, 2381)
+scale = Vector2(0.567, 0.567)
+texture = ExtResource("1_5ltsk")
+metadata/_edit_lock_ = true
+
+[node name="mirror" type="Sprite2D" parent="."]
+position = Vector2(3749.9375, 1146.5527)
+scale = Vector2(0.12110028, 0.12110028)
+texture = ExtResource("3_a3mgi")
+
+[node name="sink" type="Sprite2D" parent="."]
+position = Vector2(3836.6377, 2039.2681)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_a3mgi")

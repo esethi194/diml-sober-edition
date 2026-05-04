@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhkln8elm608l"]
+
+[ext_resource type="Texture2D" uid="uid://8kqdbqkux0ye" path="res://sprites/backgrounds/HOUSE_FINAL.png" id="2_lolbl"]
+
+[node name="markers" type="Node2D"]
+z_index = 3
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1644, 1486)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(1431, 513)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(2942, 3963)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(3202, 3211)
+
+[node name="Marker2D5" type="Marker2D" parent="."]
+position = Vector2(4407, 3250)
+
+[node name="Marker2D6" type="Marker2D" parent="."]
+position = Vector2(5121, 1810)
+
+[node name="Marker2D7" type="Marker2D" parent="."]
+position = Vector2(5767, 1441)
+
+[node name="Marker2D8" type="Marker2D" parent="."]
+position = Vector2(5149, 873)
+
+[node name="Marker2D9" type="Marker2D" parent="."]
+position = Vector2(3622, 508)
+
+[node name="Marker2D10" type="Marker2D" parent="."]
+position = Vector2(5456, 3242)
+
+[node name="house2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3856.44, 2156)
+scale = Vector2(0.567, 0.567)
+texture = ExtResource("2_lolbl")

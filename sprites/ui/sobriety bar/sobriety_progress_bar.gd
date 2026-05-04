@@ -1,0 +1,2 @@
+class_name SobrietyManager
+extends SobrietyManagerBase

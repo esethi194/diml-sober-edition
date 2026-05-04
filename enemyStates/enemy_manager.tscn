@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6ba8181hcuki"]
+
+[ext_resource type="Script" path="res://enemyStates/enemy_manager.gd" id="1_oayul"]
+[ext_resource type="PackedScene" uid="uid://cjirm4cu4814h" path="res://enemyStates/druggie/druggie_enemy.tscn" id="2_dw3p0"]
+[ext_resource type="PackedScene" uid="uid://6w70ueopmgm6" path="res://enemyStates/meany/meany_enemy.tscn" id="3_uxbod"]
+[ext_resource type="PackedScene" uid="uid://cbge5qft3dflt" path="res://enemyStates/jock/jock_enemy.tscn" id="4_rs6qr"]
+
+[node name="enemyManager" type="Node2D"]
+script = ExtResource("1_oayul")
+druggie_scene = ExtResource("2_dw3p0")
+meany_scene = ExtResource("3_uxbod")
+jock_scene = ExtResource("4_rs6qr")
+
+[node name="Timer" type="Timer" parent="."]

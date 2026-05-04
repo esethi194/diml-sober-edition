@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://6w70ueopmgm6"]
+
+[ext_resource type="PackedScene" uid="uid://cgcp0ywdbyr4v" path="res://enemyStates/enemy_base.tscn" id="1_lb78y"]
+[ext_resource type="Script" uid="uid://mfaxy5t1r6pw" path="res://enemyStates/meany/meany_enemy.gd" id="2_e60n4"]
+[ext_resource type="PackedScene" uid="uid://pvku4cxrgepf" path="res://enemyStates/meany/meany_bullet.tscn" id="3_f6loc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_phwkg"]
+radius = 34.0
+height = 138.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c3cxi"]
+radius = 68.0
+height = 326.0
+
+[node name="MeanyEnemy" instance=ExtResource("1_lb78y")]
+script = ExtResource("2_e60n4")
+bullet_scene = ExtResource("3_f6loc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-3, 74)
+shape = SubResource("CapsuleShape2D_phwkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CapsuleShape2D_c3cxi")

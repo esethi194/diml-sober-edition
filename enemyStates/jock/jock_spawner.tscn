@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjsonb3xuimbx"]
+
+[ext_resource type="Texture2D" uid="uid://8kqdbqkux0ye" path="res://sprites/backgrounds/HOUSE_FINAL.png" id="1_l0jac"]
+[ext_resource type="Texture2D" uid="uid://cdsowuu00b81f" path="res://sprites/backgrounds/level_1.png" id="4_7kosg"]
+
+[node name="jockSpawner" type="Node2D"]
+
+[node name="house2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3856.44, 2156)
+scale = Vector2(0.567, 0.567)
+texture = ExtResource("1_l0jac")
+
+[node name="Level2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3856.44, 2157)
+scale = Vector2(0.567, 0.567)
+texture = ExtResource("4_7kosg")
+
+[node name="jock2" type="Marker2D" parent="." groups=["dining_marker", "jock_spawn"]]
+position = Vector2(2710, 3177)
+
+[node name="jock3" type="Marker2D" parent="." groups=["dining_marker", "jock_spawn"]]
+position = Vector2(3688, 2923)
+
+[node name="jock5" type="Marker2D" parent="." groups=["jock_spawn", "pool_markers"]]
+position = Vector2(3647, 864)
+
+[node name="jock7" type="Marker2D" parent="." groups=["jock_spawn", "pool_markers"]]
+position = Vector2(2037, 1398)
+
+[node name="jock8" type="Marker2D" parent="." groups=["jock_spawn", "living_markers"]]
+position = Vector2(5725, 1474)
+
+[node name="jock9" type="Marker2D" parent="." groups=["jock_spawn", "living_markers"]]
+position = Vector2(6046, 2443)
+gizmo_extents = 0.0
+
+[node name="jock10" type="Marker2D" parent="." groups=["jock_spawn", "tree_marker"]]
+position = Vector2(5891, 3312)
+gizmo_extents = 0.0

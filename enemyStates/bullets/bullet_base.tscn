@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7gwcn1x17j0v"]
+
+[ext_resource type="Script" uid="uid://b2qq14hjtiurx" path="res://enemyStates/bullets/bullet_base.gd" id="1_0hxde"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ev6ma"]
+radius = 332.0
+height = 950.0
+
+[node name="bulletBase" type="Area2D" groups=["bullet"]]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_0hxde")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ev6ma")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

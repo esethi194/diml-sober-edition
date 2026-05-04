@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cof37nhax8kl3"]
+
+[ext_resource type="PackedScene" uid="uid://b7gwcn1x17j0v" path="res://enemyStates/bullets/bullet_base.tscn" id="1_ck3jx"]
+[ext_resource type="Script" uid="uid://ddx7oadw7o4lk" path="res://enemyStates/jock/jock_bullet.gd" id="2_angva"]
+[ext_resource type="Texture2D" uid="uid://c246j2wife330" path="res://sprites/collectibles/red_solo_cup.png" id="2_wjorl"]
+
+[node name="jockBullet" groups=["enemy_bullet"] instance=ExtResource("1_ck3jx")]
+scale = Vector2(0.05, 0.05)
+collision_layer = 16
+collision_mask = 5
+script = ExtResource("2_angva")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 60)
+texture = ExtResource("2_wjorl")

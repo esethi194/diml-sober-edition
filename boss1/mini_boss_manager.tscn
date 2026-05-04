@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b20ele28c2mcx"]
+
+[ext_resource type="Script" uid="uid://enu0l2y76gd6" path="res://boss1/mini_boss_manager.gd" id="1_dcpo1"]
+[ext_resource type="PackedScene" uid="uid://c8ghj47o5hnmh" path="res://boss1/mini_boss.tscn" id="2_lml77"]
+[ext_resource type="PackedScene" uid="uid://bp5yy6eka8v0j" path="res://boss1/mini_boss_spawner.tscn" id="3_nrjme"]
+
+[node name="miniBossManager" type="Node2D"]
+script = ExtResource("1_dcpo1")
+mini_boss_scene = ExtResource("2_lml77")
+
+[node name="miniBossSpawner" parent="." instance=ExtResource("3_nrjme")]

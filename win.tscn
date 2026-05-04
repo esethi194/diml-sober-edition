@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4c5e6h5sv8u7"]
+
+[ext_resource type="Script" uid="uid://bi0oamb0i4uii" path="res://win.gd" id="1_hgi8f"]
+[ext_resource type="Texture2D" uid="uid://mwp5l205kmji" path="res://sprites/backgrounds/win.png" id="2_tmki8"]
+[ext_resource type="Texture2D" uid="uid://j3xwyejh7grk" path="res://sprites/win_btn.png" id="3_u4bre"]
+[ext_resource type="PackedScene" uid="uid://co058pauody1x" path="res://sprites/ui/pause_menu.tscn" id="3_yblwc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4x0fk"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8e1nn"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+
+[node name="win" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -90.0
+offset_top = -60.0
+offset_right = -90.0
+offset_bottom = -60.0
+scale = Vector2(1.05, 1.05)
+script = ExtResource("1_hgi8f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 2141.7393
+offset_bottom = 1335.6522
+color = Color(0, 0, 0, 1)
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(1031.0149, 587.5)
+scale = Vector2(0.26138473, 0.22479166)
+texture = ExtResource("2_tmki8")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 664.0
+offset_right = 1670.0
+offset_bottom = 943.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4x0fk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8e1nn")
+icon = ExtResource("3_u4bre")
+flat = true
+expand_icon = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("3_yblwc")]
+visible = false
+
+[connection signal="pressed" from="Button" to="." method="_on_continue_pressed"]

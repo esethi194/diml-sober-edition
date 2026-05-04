@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxuqqh66uh7jm"]
+
+[ext_resource type="PackedScene" uid="uid://b45audnlrv8pc" path="res://location_trigger.tscn" id="1_rye4a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqpbd"]
+size = Vector2(791.5, 1079)
+
+[node name="tree" instance=ExtResource("1_rye4a")]
+location_name = "deck"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 389.5)
+shape = SubResource("RectangleShape2D_jqpbd")

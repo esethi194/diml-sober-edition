@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://co058pauody1x"]
+
+[ext_resource type="Script" uid="uid://cshqqd8yn8vwc" path="res://sprites/ui/pause_menu.gd" id="1_pjpim"]
+[ext_resource type="Texture2D" uid="uid://bqlwm67sttn7f" path="res://sprites/backgrounds/pause.png" id="2_f77nc"]
+[ext_resource type="Texture2D" uid="uid://ba8f0rwqkfm1j" path="res://sprites/pause_mm_btn.png" id="3_it5sh"]
+[ext_resource type="Texture2D" uid="uid://5h11y8tdugv8" path="res://sprites/pause_controls_btn.png" id="4_ayypo"]
+[ext_resource type="Texture2D" uid="uid://17wejhbs4pbv" path="res://sprites/pause_exit_btn.png" id="5_f77nc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gshmy"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5k1b5"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[node name="pauseMenu" type="CanvasLayer"]
+process_mode = 3
+scale = Vector2(0.63, 0.63)
+transform = Transform2D(0.63, 0, 0, 0.63, 0, 0)
+script = ExtResource("1_pjpim")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(1432, 1004.99994)
+scale = Vector2(0.35535246, 0.4328125)
+texture = ExtResource("2_f77nc")
+
+[node name="mainMenu" type="Button" parent="."]
+offset_left = 1112.0
+offset_top = 720.0
+offset_right = 1864.0
+offset_bottom = 930.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gshmy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5k1b5")
+icon = ExtResource("3_it5sh")
+flat = true
+expand_icon = true
+
+[node name="controls" type="Button" parent="."]
+offset_left = 1110.0
+offset_top = 933.0
+offset_right = 1863.0
+offset_bottom = 1103.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gshmy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5k1b5")
+icon = ExtResource("4_ayypo")
+flat = true
+expand_icon = true
+
+[node name="continue_exit" type="Button" parent="."]
+offset_left = 1108.0
+offset_top = 1119.0
+offset_right = 1855.0
+offset_bottom = 1312.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gshmy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5k1b5")
+icon = ExtResource("5_f77nc")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="mainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="continue_exit" to="." method="_on_continue_pressed"]

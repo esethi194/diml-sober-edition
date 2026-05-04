@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfmx76xq4jhuy"]
+
+[ext_resource type="Script" uid="uid://dh7serrxdktpp" path="res://sprites/ui/relapse/back_to_invite.gd" id="1_sd44t"]
+[ext_resource type="Texture2D" uid="uid://c14c51b0adktk" path="res://sprites/backgrounds/overwhelmed.png" id="2_3ux0n"]
+[ext_resource type="PackedScene" uid="uid://co058pauody1x" path="res://sprites/ui/pause_menu.tscn" id="3_3ux0n"]
+[ext_resource type="Texture2D" uid="uid://bu45lpbdhy7is" path="res://sprites/timeout_btn.png" id="3_mxhx5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ux0n"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxhx5"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[node name="timeout" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -170.0
+offset_top = -80.0
+offset_right = -170.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+script = ExtResource("1_sd44t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1947.0
+offset_bottom = 1120.0
+color = Color(0, 0, 0, 1)
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(1055.515, 559.50006)
+scale = Vector2(0.2681903, 0.21312499)
+texture = ExtResource("2_3ux0n")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 651.0
+offset_right = 1597.0
+offset_bottom = 945.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3ux0n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mxhx5")
+icon = ExtResource("3_mxhx5")
+flat = true
+expand_icon = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("3_3ux0n")]
+visible = false
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

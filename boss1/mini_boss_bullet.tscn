@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dimuilwwnvfrt"]
+
+[ext_resource type="Script" uid="uid://bo86uveysrb3e" path="res://boss1/mini_boss_bullet.gd" id="1_luhnf"]
+[ext_resource type="Texture2D" uid="uid://dhmco0iropsmt" path="res://sprites/boss/purple_glow.png" id="2_gnohg"]
+[ext_resource type="Texture2D" uid="uid://iigjpqjbqpt8" path="res://sprites/bullets/minibossbullets.png" id="3_irpva"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ffrg"]
+radius = 75.0
+
+[node name="mini_bossBullet" type="Area2D" groups=["bullet", "enemy_bullet"]]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_luhnf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(4.7683716e-07, 10)
+scale = Vector2(0.19675341, 0.25528485)
+texture = ExtResource("2_gnohg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16.25003, -4.9999924)
+scale = Vector2(0.045400634, 0.045400646)
+texture = ExtResource("3_irpva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.68434e-14, 3.55271e-15)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_6ffrg")

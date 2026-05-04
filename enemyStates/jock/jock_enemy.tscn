@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbge5qft3dflt"]
+
+[ext_resource type="PackedScene" uid="uid://cgcp0ywdbyr4v" path="res://enemyStates/enemy_base.tscn" id="1_g647m"]
+[ext_resource type="Script" uid="uid://bdrs7q38koelb" path="res://enemyStates/jock/jock_enemy.gd" id="2_7xsk3"]
+[ext_resource type="PackedScene" uid="uid://cof37nhax8kl3" path="res://enemyStates/jock/jock_bullet.tscn" id="3_unk4n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k5aj1"]
+radius = 34.0
+height = 138.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vnd1"]
+radius = 68.0
+height = 326.0
+
+[node name="JockEnemy" instance=ExtResource("1_g647m")]
+script = ExtResource("2_7xsk3")
+bullet_scene = ExtResource("3_unk4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-3, 74)
+shape = SubResource("CapsuleShape2D_k5aj1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CapsuleShape2D_2vnd1")

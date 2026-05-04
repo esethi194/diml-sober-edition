@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc00vgglinieb"]
+
+[ext_resource type="PackedScene" uid="uid://b45audnlrv8pc" path="res://location_trigger.tscn" id="1_smve0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etcfu"]
+size = Vector2(579.5, 271.5)
+
+[node name="bathroom" instance=ExtResource("1_smve0")]
+location_name = "bathroom"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+position = Vector2(4948, 1773)
+shape = SubResource("RectangleShape2D_etcfu")

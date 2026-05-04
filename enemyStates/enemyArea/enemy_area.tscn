@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://bsv1rjaq6wjby"]
+
+[ext_resource type="Texture2D" uid="uid://8kqdbqkux0ye" path="res://sprites/backgrounds/HOUSE_FINAL.png" id="1_n4hqr"]
+[ext_resource type="Script" uid="uid://cjiyy6rna6xnn" path="res://enemyStates/enemyArea/kitchen.gd" id="2_5fi6i"]
+[ext_resource type="Texture2D" uid="uid://cdsowuu00b81f" path="res://sprites/backgrounds/level_1.png" id="3_j3rlo"]
+[ext_resource type="Script" uid="uid://l7tvdbktu7fh" path="res://enemyStates/enemyArea/dinning.gd" id="3_oo0r5"]
+[ext_resource type="Script" uid="uid://bi4ijedndwrcw" path="res://enemyStates/enemyArea/dumpster.gd" id="4_fe0xo"]
+[ext_resource type="Script" uid="uid://c1pbxhqujyg2k" path="res://enemyStates/enemyArea/tree.gd" id="5_kv2iw"]
+[ext_resource type="Script" uid="uid://belgkw4buy3i7" path="res://enemyStates/enemyArea/living.gd" id="5_sswep"]
+[ext_resource type="Script" uid="uid://v17xe5dtju7y" path="res://enemyStates/enemyArea/pool.gd" id="6_3wi5g"]
+
+[node name="enemy_area" type="Node"]
+
+[node name="house2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3856.44, 2156)
+scale = Vector2(0.567, 0.567)
+texture = ExtResource("1_n4hqr")
+
+[node name="Level2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3856.44, 2157)
+scale = Vector2(0.567, 0.567)
+texture = ExtResource("3_j3rlo")
+
+[node name="kitchen" type="Area2D" parent="." groups=["kitchen"]]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("2_5fi6i")
+
+[node name="kitchen" type="CollisionPolygon2D" parent="kitchen"]
+polygon = PackedVector2Array(3974, 1329, 4142, 1328, 4133, 1660, 4467, 1662, 4465, 1328, 5136, 1320, 5129, 1114, 5133, 977, 5137, 969, 5142, 964, 5151, 962, 5236, 956, 5234, 780, 4779, 781, 4779, 753, 4632, 754, 4376, 759, 4360, 753, 4357, 743, 4103, 746, 4073, 761, 4070, 765, 4064, 1064, 3972, 1065)
+one_way_collision_margin = 0.0
+
+[node name="dining" type="Area2D" parent="." groups=["dining"]]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("3_oo0r5")
+
+[node name="dinning(jocks)" type="CollisionPolygon2D" parent="dining"]
+polygon = PackedVector2Array(2538, 3333, 2540, 2509, 3903, 2510, 3904, 3332)
+
+[node name="dumpster" type="Area2D" parent="." groups=["dumpster"]]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("4_fe0xo")
+
+[node name="smokezone(druggies)" type="CollisionPolygon2D" parent="dumpster"]
+polygon = PackedVector2Array(708, 2829, 706, 1926, 1836, 1929, 1840, 2570, 2164, 2570, 2169, 2679, 2474, 2675, 2484, 3960, 718, 3965)
+
+[node name="tree" type="Area2D" parent="." groups=["tree"]]
+visibility_layer = 4
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("5_kv2iw")
+
+[node name="smokezone(druggies)" type="CollisionPolygon2D" parent="tree"]
+position = Vector2(4185, 72)
+polygon = PackedVector2Array(1121, 3761, 1126, 3019, 2477, 3009, 2349, 3884, 2470, 4409, 1057, 4418, 1057, 3767)
+
+[node name="living" type="Area2D" parent="." groups=["living"]]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("5_sswep")
+
+[node name="living(all 3" type="CollisionPolygon2D" parent="living"]
+polygon = PackedVector2Array(5319, 1381, 6649, 1382, 6648, 2689, 5320, 2691)
+
+[node name="pool" type="Area2D" parent="." groups=["pool"]]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("6_3wi5g")
+
+[node name="poolarea(3" type="CollisionPolygon2D" parent="pool"]
+position = Vector2(7, -18)
+polygon = PackedVector2Array(1270, 1619, 1824, 1616, 1824, 1517, 1824, 1505, 2908, 1506, 2909, 1302, 3076, 1244, 3076, 1064, 3894, 1065, 3895, 371, 1269, 368)
